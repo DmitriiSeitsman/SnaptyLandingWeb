@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import logo from "@/SnaptyLogo.png";
 import ScreensCarousel from "@/app/components/ScreensCarousel";
 import type { Messages } from "@/i18n/types";
 import { localizedPath } from "@/lib/routing";
@@ -20,16 +18,7 @@ export default function HomeContent({ messages: m }: Props) {
         <div className="shell">
           <div className="hero-layout">
             <div className="hero-copy">
-              <div className="brand-release-row">
-                <header className="brand-row">
-                  <Image
-                    src={logo}
-                    alt={m.home.logoAlt}
-                    className="brand-logo"
-                    priority
-                  />
-                  <span className="brand-name">Snapty</span>
-                </header>
+              <div className="home-download-row">
                 <div className="release-note">
                   <span className="release-note-label">{m.home.releaseAvailable}</span>
                   <a

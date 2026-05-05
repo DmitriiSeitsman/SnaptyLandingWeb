@@ -1,5 +1,5 @@
 import "./globals.css";
-import SiteChrome from "@/app/components/SiteChrome";
+import AppHeader from "@/app/components/AppHeader";
 import { getLocaleRedirectInlineScript } from "@/lib/locale-redirect";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <script dangerouslySetInnerHTML={{ __html: getLocaleRedirectInlineScript() }} />
-        <SiteChrome />
+        <AppHeader />
         {children}
       </body>
     </html>

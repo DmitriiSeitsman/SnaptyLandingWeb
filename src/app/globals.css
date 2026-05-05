@@ -42,14 +42,30 @@ body {
     var(--bg-start);
 }
 
+.app-header {
+  width: 100%;
+}
+
+.app-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0 10px;
+  min-width: 0;
+}
+
+.brand-home-link {
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
 .top-controls {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  z-index: 20;
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .lang-switcher {
@@ -159,7 +175,7 @@ body {
 }
 
 .hero {
-  padding: 48px 0 64px;
+  padding: 12px 0 64px;
 }
 
 .shell {
@@ -167,16 +183,14 @@ body {
   margin: 0 auto;
 }
 
-.brand-release-row {
+.home-download-row {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  justify-content: flex-start;
   margin-bottom: 18px;
-  min-width: 0;
 }
 
-.brand-release-row .brand-row {
-  flex-shrink: 0;
+.home-download-row .release-note {
+  margin-bottom: 0;
 }
 
 .release-note {
@@ -191,13 +205,6 @@ body {
   color: var(--text-secondary);
   font-size: 0.86rem;
   letter-spacing: 0.01em;
-}
-
-.brand-release-row .release-note {
-  margin-bottom: 0;
-  margin-left: auto;
-  flex-shrink: 1;
-  min-width: 0;
 }
 
 .release-note-label {
@@ -261,7 +268,7 @@ body {
 }
 
 .eyebrow {
-  margin: 24px 0 0;
+  margin: 8px 0 0;
   color: var(--text-secondary);
   font-size: 0.95rem;
 }
@@ -331,7 +338,7 @@ body {
 
 .hero-visual {
   position: sticky;
-  top: 88px;
+  top: 24px;
 }
 
 .screen-frame {
@@ -379,7 +386,7 @@ body {
 }
 
 .info-page {
-  padding: 48px 0 64px;
+  padding: 16px 0 64px;
 }
 
 .info-page h1 {
@@ -493,11 +500,16 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 28px;
+    padding-top: 8px;
   }
 
   .shell {
     width: calc(100% - 24px);
+  }
+
+  .app-header-inner {
+    gap: 8px;
+    padding: 10px 0 8px;
   }
 
   .hero-layout {
@@ -520,8 +532,6 @@ body {
   }
 
   .top-controls {
-    top: 10px;
-    right: 10px;
     gap: 8px;
   }
 
@@ -537,30 +547,24 @@ body {
     font-size: 0.88rem;
   }
 
-  .brand-release-row {
-    gap: 8px;
-    padding-right: 118px;
-    box-sizing: border-box;
-  }
-
-  .brand-release-row .release-note {
+  .home-download-row .release-note {
     gap: 6px;
     padding: 6px 10px;
     font-size: 0.76rem;
   }
 
-  .brand-release-row .release-note-label {
+  .home-download-row .release-note-label {
     padding: 3px 7px;
     font-size: 0.72rem;
     white-space: nowrap;
   }
 
-  .brand-release-row .release-download {
+  .home-download-row .release-download {
     padding: 5px;
     flex-shrink: 0;
   }
 
-  .brand-release-row .release-download svg {
+  .home-download-row .release-download svg {
     width: 16px;
     height: 16px;
   }
