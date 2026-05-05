@@ -29,14 +29,40 @@ const audiences = [
   "Commercial shoots",
 ];
 
+const APP_STORE_URL =
+  "https://apps.apple.com/app/snapty-photo-planner/id6766277207";
+
 export default function HomePage() {
   return (
     <main className="page">
       <section className="hero">
         <div className="shell">
           <div className="release-note">
-            <span className="release-note-label">iOS Release</span>
-            <span>June 2026</span>
+            <span className="release-note-label">Available for iOS</span>
+            <a
+              href={APP_STORE_URL}
+              className="release-download"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download Snapty on the App Store"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </a>
           </div>
 
           <div className="hero-layout">

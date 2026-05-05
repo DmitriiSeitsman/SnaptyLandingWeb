@@ -146,6 +146,26 @@ body {
   font-weight: 600;
 }
 
+.release-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: -4px -6px -4px 0;
+  padding: 6px;
+  border-radius: 999px;
+  color: var(--text-primary);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.release-download:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .release-download:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
