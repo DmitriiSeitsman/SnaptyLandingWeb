@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/SnaptyLogo.png";
-import mainScreenDark from "@/screens/MainScreenDark.png";
+import ScreensCarousel from "@/app/components/ScreensCarousel";
 
 const highlights = [
   "Daily planning and reminders",
@@ -29,18 +30,11 @@ export default function HomePage() {
               <p className="eyebrow">Planner for photographers</p>
               <h1 className="hero-title">Organize shoots in one calm workspace</h1>
               <p className="hero-text">
-                Clean landing skeleton for the next iteration. We can now safely build sections,
-                content, and interactions step by step.
+                Snapty is a mobile planner for photographers that combines client records, shoot
+                scheduling, reminders, notes, and lightweight analytics in one local-first flow.
+                The product is designed to reduce routine admin work and help creators focus on
+                sessions, communication, and consistent delivery.
               </p>
-
-              <div className="hero-actions">
-                <button type="button" className="btn btn-primary">
-                  Join waitlist
-                </button>
-                <button type="button" className="btn btn-secondary">
-                  Explore roadmap
-                </button>
-              </div>
 
               <div className="cards-grid">
                 {highlights.map((item, index) => (
@@ -50,16 +44,16 @@ export default function HomePage() {
                   </article>
                 ))}
               </div>
+
+              <nav className="footer-links" aria-label="Additional pages">
+                <Link href="/support">Support</Link>
+                <Link href="/policy">Privacy Policy</Link>
+              </nav>
             </div>
 
             <aside className="hero-visual">
               <div className="screen-frame">
-                <Image
-                  src={mainScreenDark}
-                  alt="Snapty main screen preview"
-                  className="screen-image"
-                  priority
-                />
+                <ScreensCarousel />
               </div>
             </aside>
           </div>
