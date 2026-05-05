@@ -1,5 +1,6 @@
 import "./globals.css";
-import ThemeToggle from "@/app/components/ThemeToggle";
+import SiteChrome from "@/app/components/SiteChrome";
+import { getLocaleRedirectInlineScript } from "@/lib/locale-redirect";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,7 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-        <ThemeToggle />
+        <script dangerouslySetInnerHTML={{ __html: getLocaleRedirectInlineScript() }} />
+        <SiteChrome />
         {children}
       </body>
     </html>

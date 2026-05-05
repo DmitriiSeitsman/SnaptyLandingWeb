@@ -11,7 +11,12 @@ import screen06 from "@/screens/Snapty_06.jpg";
 
 const screens: StaticImageData[] = [screen01, screen02, screen03, screen04, screen05, screen06];
 
-export default function ScreensCarousel() {
+type Props = {
+  /** Use "{n}" for the screen index (1-based), e.g. "Screen {n}". */
+  screenAltTemplate?: string;
+};
+
+export default function ScreensCarousel({ screenAltTemplate = "Snapty app screen {n}" }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -30,7 +35,7 @@ export default function ScreensCarousel() {
         <Image
           key={screen.src}
           src={screen}
-          alt={`Snapty app screen ${index + 1}`}
+          alt={screenAltTemplate.replace("{n}", String(index + 1))}
           className={`screen-image carousel-image ${index === activeIndex ? "is-active" : ""}`}
           priority={index === 0}
         />
