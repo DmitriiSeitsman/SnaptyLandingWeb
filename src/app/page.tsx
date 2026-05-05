@@ -4,10 +4,29 @@ import logo from "@/SnaptyLogo.png";
 import ScreensCarousel from "@/app/components/ScreensCarousel";
 
 const highlights = [
-  "Daily planning and reminders",
-  "Client cards and shoot history",
-  "Personal notes and checklists",
-  "Clear income and session overview",
+  {
+    title: "Plan every shoot",
+    text: "Keep upcoming sessions, dates, times, locations, and client details in one place.",
+  },
+  {
+    title: "Remember the details",
+    text: "Use reminders, notes, and checklists so nothing important disappears into the usual human chaos.",
+  },
+  {
+    title: "Know your clients",
+    text: "Store client cards, contact details, and shoot history without digging through old messages.",
+  },
+  {
+    title: "Track your work",
+    text: "Get a clear overview of sessions, payments, and planned income without building a spreadsheet shrine.",
+  },
+];
+
+const audiences = [
+  "Wedding photographers",
+  "Portrait photographers",
+  "Family sessions",
+  "Commercial shoots",
 ];
 
 export default function HomePage() {
@@ -28,30 +47,58 @@ export default function HomePage() {
               </header>
 
               <p className="eyebrow">Planner for photographers</p>
-              <h1 className="hero-title">Organize shoots in one calm workspace</h1>
+
+              <h1 className="hero-title">
+                A calmer way to plan shoots, clients, and creative work
+              </h1>
+
               <p className="hero-text">
-                Snapty is a mobile planner for photographers that combines client records, shoot
-                scheduling, reminders, notes, and lightweight analytics in one local-first flow.
-                The product is designed to reduce routine admin work and help creators focus on
-                sessions, communication, and consistent delivery.
+                Snapty helps photographers organize bookings, client records, reminders,
+                personal notes, checklists, and income overview in one focused iPhone app.
+                Less admin noise. More time for actual photography.
               </p>
+
+              <div className="hero-actions" aria-label="Main actions">
+                <Link href="/support" className="primary-link">
+                  Contact Support
+                </Link>
+                <Link href="/policy" className="secondary-link">
+                  Privacy Policy
+                </Link>
+              </div>
+
+              <div className="audience-list" aria-label="Designed for">
+                {audiences.map((item) => (
+                  <span key={item} className="audience-pill">
+                    {item}
+                  </span>
+                ))}
+              </div>
 
               <div className="cards-grid">
                 {highlights.map((item, index) => (
-                  <article key={item} className="card">
-                    <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
-                    <p>{item}</p>
+                  <article key={item.title} className="card">
+                    <span className="card-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h2>{item.title}</h2>
+                    <p>{item.text}</p>
                   </article>
                 ))}
               </div>
 
-              <nav className="footer-links" aria-label="Additional pages">
-                <Link href="/support">Support</Link>
-                <Link href="/policy">Privacy Policy</Link>
-              </nav>
+              <section className="privacy-note" aria-labelledby="privacy-title">
+                <h2 id="privacy-title">Private by design</h2>
+                <p>
+                  Snapty is built as a local-first workspace for your photography business.
+                  Your shoots, notes, clients, and reminders are designed to stay close to
+                  you, with optional iCloud sync support.
+                </p>
+              </section>
+
             </div>
 
-            <aside className="hero-visual">
+            <aside className="hero-visual" aria-label="Snapty app preview">
               <div className="screen-frame">
                 <ScreensCarousel />
               </div>
