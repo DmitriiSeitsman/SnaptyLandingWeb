@@ -1,8 +1,7 @@
 import type { Locale } from "@/i18n/types";
+import { SITE_ORIGIN } from "@/lib/constants";
 
 export type SitePath = "" | "policy" | "support";
-
-const SITE_URL = "https://snapty.pro";
 
 /** Trailing-slash URLs matching next.config trailingSlash. */
 export function localizedPath(locale: Locale, segment: SitePath): string {
@@ -16,8 +15,10 @@ export function localizedPath(locale: Locale, segment: SitePath): string {
 
 export function absoluteUrl(locale: Locale, segment: SitePath): string {
   const path = localizedPath(locale, segment);
-  if (path === "/") return SITE_URL.endsWith("/") ? SITE_URL.slice(0, -1) + "/" : SITE_URL + "/";
-  return SITE_URL.replace(/\/$/, "") + path;
+  const base = SITE_ORIGIN.replace(/\/$/, "");
+  // Keep trailing slash for `/` — matches Next `trailingSlash: true` and Telegram-friendly paste.
+  if (path === "/") return `${base}/`;
+  return base + path;
 }
 
 export function oppositeLocale(locale: Locale): Locale {

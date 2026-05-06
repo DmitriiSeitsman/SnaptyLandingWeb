@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
+import { SITE_ORIGIN } from "@/lib/constants";
 
 export const dynamic = "force-static";
-
-const BASE = "https://snapty.pro";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-05-06");
@@ -16,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return paths.map((path) => ({
-    url: `${BASE.replace(/\/$/, "")}${path}`,
+    url: path === "/" ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN.replace(/\/$/, "")}${path}`,
     lastModified,
     changeFrequency: path === "/" || path === "/ru/" ? "weekly" : "monthly",
     priority: path === "/" || path === "/ru/" ? 1 : 0.7,
