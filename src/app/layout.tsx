@@ -3,10 +3,14 @@ import type { Metadata } from "next";
 import AppHeader from "@/app/components/AppHeader";
 import { getLocaleRedirectInlineScript } from "@/lib/locale-redirect";
 import favicon from "@/favicon.ico";
-import webCard from "@/snapty_wcard.png";
+import {
+  SOCIAL_SHARE_IMAGE_HEIGHT,
+  SOCIAL_SHARE_IMAGE_PATH,
+  SOCIAL_SHARE_IMAGE_WIDTH,
+} from "@/lib/constants";
 
 const SITE_URL = "https://snapty.pro";
-const socialImageUrl = new URL(webCard.src, SITE_URL).toString();
+const socialImageUrl = new URL(SOCIAL_SHARE_IMAGE_PATH, SITE_URL).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -113,8 +117,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: socialImageUrl,
-        width: webCard.width,
-        height: webCard.height,
+        width: SOCIAL_SHARE_IMAGE_WIDTH,
+        height: SOCIAL_SHARE_IMAGE_HEIGHT,
         alt: "Snapty photo planner app for photographers",
       },
     ],

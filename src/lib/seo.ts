@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import type { Messages } from "@/i18n/types";
 import { absoluteUrl, type SitePath } from "@/lib/routing";
-import webCard from "@/snapty_wcard.png";
+import {
+  SOCIAL_SHARE_IMAGE_HEIGHT,
+  SOCIAL_SHARE_IMAGE_PATH,
+  SOCIAL_SHARE_IMAGE_WIDTH,
+} from "@/lib/constants";
 
 function joinKeywords(parts: string[]): string {
   return [...new Set(parts)].join(", ");
@@ -19,7 +23,7 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
   const pathnameSegment = segmentForPage[page];
   const { locale, seo, siteName, siteUrl } = messages;
   const pageSeo = seo[page];
-  const socialImageUrl = new URL(webCard.src, siteUrl).toString();
+  const socialImageUrl = new URL(SOCIAL_SHARE_IMAGE_PATH, siteUrl).toString();
 
   const canonical = absoluteUrl(locale, pathnameSegment);
   const enUrl = absoluteUrl("en", segmentForPage[page]);
@@ -55,8 +59,8 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
       images: [
         {
           url: socialImageUrl,
-          width: webCard.width,
-          height: webCard.height,
+          width: SOCIAL_SHARE_IMAGE_WIDTH,
+          height: SOCIAL_SHARE_IMAGE_HEIGHT,
           alt: `${siteName} website preview`,
         },
       ],
