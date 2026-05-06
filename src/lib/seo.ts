@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { Messages } from "@/i18n/types";
 import { absoluteUrl, type SitePath } from "@/lib/routing";
+import webCard from "@/snapty_wcard.png";
 
 function joinKeywords(parts: string[]): string {
   return [...new Set(parts)].join(", ");
@@ -50,11 +51,18 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
       locale: locale === "ru" ? "ru_RU" : "en_US",
       alternateLocale: locale === "ru" ? ["en_US"] : ["ru_RU"],
       type: "website",
+      images: [
+        {
+          url: webCard.src,
+          alt: `${siteName} website preview`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: pageSeo.title,
       description: pageSeo.description,
+      images: [webCard.src],
     },
     robots: {
       index: true,
