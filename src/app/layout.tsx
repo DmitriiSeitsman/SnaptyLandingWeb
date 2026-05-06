@@ -5,8 +5,11 @@ import { getLocaleRedirectInlineScript } from "@/lib/locale-redirect";
 import favicon from "@/favicon.ico";
 import webCard from "@/snapty_wcard.png";
 
+const SITE_URL = "https://snapty.pro";
+const socialImageUrl = new URL(webCard.src, SITE_URL).toString();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://snapty.pro"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Snapty — Photo Planner for Photographers | iOS Shoot Organizer",
     template: "%s | Snapty",
@@ -73,17 +76,19 @@ export const metadata: Metadata = {
   creator: "Snapty",
   publisher: "Snapty",
   alternates: {
-    canonical: "https://snapty.pro",
+    canonical: SITE_URL,
   },
   openGraph: {
     title: "Snapty — Photo Planner for Photographers",
     description:
       "Plan shoots, manage clients, prepare checklists, keep reminders and track income in one iOS app for photographers.",
-    url: "https://snapty.pro",
+    url: SITE_URL,
     siteName: "Snapty",
     images: [
       {
-        url: webCard.src,
+        url: socialImageUrl,
+        width: webCard.width,
+        height: webCard.height,
         alt: "Snapty photo planner app for photographers",
       },
     ],
@@ -95,7 +100,7 @@ export const metadata: Metadata = {
     title: "Snapty — Photo Planner for Photographers",
     description:
       "An iOS planner for photographers to organize shoots, clients, checklists, reminders, notes and income.",
-    images: [webCard.src],
+    images: [socialImageUrl],
   },
   robots: {
     index: true,

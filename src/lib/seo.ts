@@ -19,6 +19,7 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
   const pathnameSegment = segmentForPage[page];
   const { locale, seo, siteName, siteUrl } = messages;
   const pageSeo = seo[page];
+  const socialImageUrl = new URL(webCard.src, siteUrl).toString();
 
   const canonical = absoluteUrl(locale, pathnameSegment);
   const enUrl = absoluteUrl("en", segmentForPage[page]);
@@ -53,7 +54,9 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
       type: "website",
       images: [
         {
-          url: webCard.src,
+          url: socialImageUrl,
+          width: webCard.width,
+          height: webCard.height,
           alt: `${siteName} website preview`,
         },
       ],
@@ -62,7 +65,7 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
       card: "summary_large_image",
       title: pageSeo.title,
       description: pageSeo.description,
-      images: [webCard.src],
+      images: [socialImageUrl],
     },
     robots: {
       index: true,
