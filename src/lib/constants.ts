@@ -1,9 +1,6 @@
 export const APP_STORE_URL =
   "https://apps.apple.com/app/snapty-photo-planner/id6766277207";
 
-/** Public site origin, no trailing slash (matches URLs people paste: https://snapty.pro). */
-export const SITE_ORIGIN = "https://snapty.pro";
-
 /** Copied to `public/` so OG/Twitter bots get a stable URL (not a hashed `/_next/` path). */
 export const SOCIAL_SHARE_IMAGE_PATH = "/social/snapty-card.png";
 

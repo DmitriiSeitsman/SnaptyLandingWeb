@@ -4,16 +4,16 @@ import AppHeader from "@/app/components/AppHeader";
 import { getLocaleRedirectInlineScript } from "@/lib/locale-redirect";
 import favicon from "@/favicon.ico";
 import {
-  SITE_ORIGIN,
   SOCIAL_SHARE_IMAGE_HEIGHT,
   SOCIAL_SHARE_IMAGE_PATH,
   SOCIAL_SHARE_IMAGE_WIDTH,
 } from "@/lib/constants";
 
-const socialImageUrl = new URL(SOCIAL_SHARE_IMAGE_PATH, `${SITE_ORIGIN}/`).toString();
+const SITE_URL = "https://snapty.pro";
+const socialImageUrl = new URL(SOCIAL_SHARE_IMAGE_PATH, SITE_URL).toString();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${SITE_ORIGIN}/`),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Snapty — Photo Planner for Photographers | iOS Shoot Organizer",
     template: "%s | Snapty",
@@ -106,13 +106,13 @@ export const metadata: Metadata = {
   creator: "Snapty",
   publisher: "Snapty",
   alternates: {
-    canonical: `${SITE_ORIGIN}/`,
+    canonical: SITE_URL,
   },
   openGraph: {
     title: "Snapty — Photo Planner for Photographers",
     description:
       "Plan shoots, manage clients, prepare checklists, keep reminders and track income in one iOS app for photographers.",
-    url: `${SITE_ORIGIN}/`,
+    url: SITE_URL,
     siteName: "Snapty",
     images: [
       {

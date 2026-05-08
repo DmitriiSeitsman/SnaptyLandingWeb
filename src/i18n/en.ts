@@ -1,10 +1,11 @@
 import type { Messages } from "@/i18n/types";
-import { SITE_ORIGIN } from "@/lib/constants";
+
+const SITE_URL = "https://snapty.pro";
 
 export const en: Messages = {
   locale: "en",
   siteName: "Snapty",
-  siteUrl: SITE_ORIGIN,
+  siteUrl: SITE_URL,
   seo: {
     siteKeywords: [
       "Snapty",

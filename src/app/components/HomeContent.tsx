@@ -91,7 +91,10 @@ export default function HomeContent({ messages: m }: Props) {
 
             <aside className="hero-visual" aria-label={m.home.visualAria}>
               <div className="screen-frame">
-                <ScreensCarousel screenAltTemplate={m.home.carouselScreenAlt} />
+                <ScreensCarousel
+                  screenAltTemplate={m.home.carouselScreenAlt}
+                  locale={m.locale}
+                />
               </div>
             </aside>
           </div>
