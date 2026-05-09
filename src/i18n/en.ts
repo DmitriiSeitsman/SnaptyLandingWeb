@@ -33,9 +33,9 @@ export const en: Messages = {
       "local-first photo studio app",
     ],
     home: {
-      title: "Snapty — Photo planner for photographers | iPhone app",
+      title: "Snapty — Photo Planner for Photographers | iOS Shoot Organizer",
       description:
-        "Plan photo shoots, manage clients, track bookings, checklists and reminders in one iPhone app. Wedding, portrait & commercial photography planner with local-first storage.",
+        "Snapty is an iOS photo planner for photographers and videographers. Manage shoots, clients, reminders, checklists, notes, income and optional iCloud sync in one focused app.",
       keywords: [
         "photography planner",
         "photographer scheduling app",

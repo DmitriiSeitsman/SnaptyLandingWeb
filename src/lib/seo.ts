@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Messages } from "@/i18n/types";
-import { absoluteUrl, type SitePath } from "@/lib/routing";
+import { absoluteUrl, localizedPath, type SitePath } from "@/lib/routing";
 import {
   SOCIAL_SHARE_IMAGE_HEIGHT,
   SOCIAL_SHARE_IMAGE_PATH,
@@ -23,11 +23,10 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
   const pathnameSegment = segmentForPage[page];
   const { locale, seo, siteName, siteUrl } = messages;
   const pageSeo = seo[page];
-  const socialImageUrl = new URL(SOCIAL_SHARE_IMAGE_PATH, siteUrl).toString();
-
   const canonical = absoluteUrl(locale, pathnameSegment);
   const enUrl = absoluteUrl("en", segmentForPage[page]);
   const ruUrl = absoluteUrl("ru", segmentForPage[page]);
+  const ogPath = localizedPath(locale, pathnameSegment);
 
   const allKeywords = joinKeywords([
     ...seo.siteKeywords,
@@ -51,14 +50,14 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
     openGraph: {
       title: pageSeo.title,
       description: pageSeo.description,
-      url: canonical,
+      url: ogPath,
       siteName,
       locale: locale === "ru" ? "ru_RU" : "en_US",
       alternateLocale: locale === "ru" ? ["en_US"] : ["ru_RU"],
       type: "website",
       images: [
         {
-          url: socialImageUrl,
+          url: SOCIAL_SHARE_IMAGE_PATH,
           width: SOCIAL_SHARE_IMAGE_WIDTH,
           height: SOCIAL_SHARE_IMAGE_HEIGHT,
           alt: `${siteName} website preview`,
@@ -69,7 +68,12 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
       card: "summary_large_image",
       title: pageSeo.title,
       description: pageSeo.description,
-      images: [socialImageUrl],
+      images: [
+        {
+          url: SOCIAL_SHARE_IMAGE_PATH,
+          alt: `${siteName} website preview`,
+        },
+      ],
     },
     robots: {
       index: true,
