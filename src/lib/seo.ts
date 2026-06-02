@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Messages } from "@/i18n/types";
+import type { FaqItem, Messages } from "@/i18n/types";
 import { absoluteUrl, localizedPath, type SitePath } from "@/lib/routing";
 import {
   SOCIAL_SHARE_IMAGE_HEIGHT,
@@ -28,6 +28,11 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
   const ruUrl = absoluteUrl("ru", segmentForPage[page]);
   const ogPath = localizedPath(locale, pathnameSegment);
 
+  const ogTitle =
+    page === "home" ? seo.home.ogTitle : pageSeo.title;
+  const ogDescription =
+    page === "home" ? seo.home.ogDescription : pageSeo.description;
+
   const allKeywords = joinKeywords([
     ...seo.siteKeywords,
     ...pageSeo.keywords,
@@ -48,8 +53,8 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
       },
     },
     openGraph: {
-      title: pageSeo.title,
-      description: pageSeo.description,
+      title: ogTitle,
+      description: ogDescription,
       url: ogPath,
       siteName,
       locale: locale === "ru" ? "ru_RU" : "en_US",
@@ -60,14 +65,14 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
           url: SOCIAL_SHARE_IMAGE_PATH,
           width: SOCIAL_SHARE_IMAGE_WIDTH,
           height: SOCIAL_SHARE_IMAGE_HEIGHT,
-          alt: `${siteName} website preview`,
+          alt: `${siteName} — photo shoot planner for iPhone, iPad and Mac`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: pageSeo.title,
-      description: pageSeo.description,
+      title: ogTitle,
+      description: ogDescription,
       images: [
         {
           url: SOCIAL_SHARE_IMAGE_PATH,
@@ -82,25 +87,58 @@ export function buildPageMetadata(messages: Messages, page: PageKey): Metadata {
   };
 }
 
-/** Home-only JSON-LD for SoftwareApplication-style hints. */
-export function homeJsonLd(messages: Messages, appStoreUrl: string): string {
-  const { siteName, jsonLd, seo } = messages;
+function softwareApplicationJsonLd(
+  messages: Messages,
+  appStoreUrl: string,
+): Record<string, unknown> {
+  const { siteName, jsonLd } = messages;
   const homeUrl = absoluteUrl(messages.locale, "");
-  const data = {
+
+  return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: siteName,
-    applicationCategory: "PhotographyApplication",
-    operatingSystem: "iOS",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "iOS, iPadOS, macOS",
+    description: jsonLd.description,
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
     },
     url: homeUrl,
-    description: seo.home.description,
     downloadUrl: appStoreUrl,
     featureList: jsonLd.featureList,
   };
-  return JSON.stringify(data);
+}
+
+function faqPageJsonLd(items: FaqItem[]): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/** JSON-LD scripts for the home page (SoftwareApplication + FAQPage). */
+export function homeStructuredData(
+  messages: Messages,
+  appStoreUrl: string,
+): string[] {
+  return [
+    JSON.stringify(softwareApplicationJsonLd(messages, appStoreUrl)),
+    JSON.stringify(faqPageJsonLd(messages.home.faq.items)),
+  ];
+}
+
+/** @deprecated Use homeStructuredData */
+export function homeJsonLd(messages: Messages, appStoreUrl: string): string {
+  return homeStructuredData(messages, appStoreUrl)[0];
 }

@@ -7,6 +7,11 @@ export type PolicySection = {
   items: string[];
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export type Messages = {
   locale: Locale;
   siteName: string;
@@ -16,6 +21,8 @@ export type Messages = {
     home: {
       title: string;
       description: string;
+      ogTitle: string;
+      ogDescription: string;
       keywords: string[];
     };
     policy: {
@@ -43,6 +50,10 @@ export type Messages = {
   };
   home: {
     releaseAvailable: string;
+    macOsRequirement: string;
+    platformsAnnouncement: string;
+    workflowBadge: string;
+    downloadCta: string;
     appStoreAria: string;
     logoAlt: string;
     eyebrow: string;
@@ -53,11 +64,22 @@ export type Messages = {
     heroActionsAria: string;
     audienceAria: string;
     audiences: string[];
-    highlights: { title: string; text: string }[];
-    privacyTitle: string;
-    privacyText: string;
+    iCloud: {
+      title: string;
+      text: string;
+      cards: { title: string; text: string }[];
+    };
+    platforms: {
+      title: string;
+      text: string;
+      cards: { name: string; text: string }[];
+    };
+    faq: {
+      title: string;
+      items: FaqItem[];
+    };
     visualAria: string;
-    carouselScreenAlt: string;
+    carouselAlts: string[];
   };
   policy: {
     pageTitle: string;

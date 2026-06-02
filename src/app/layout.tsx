@@ -14,12 +14,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Snapty — Photo Planner for Photographers | iOS Shoot Organizer",
+    default:
+      "Snapty — Photo Shoot Planner & Client Organizer for iPhone, iPad and Mac",
     template: "%s | Snapty",
   },
 
   description:
-    "Snapty is an iOS photo planner for photographers and videographers. Manage shoots, clients, reminders, checklists, notes, income and optional iCloud sync in one focused app.",
+    "Plan photo shoots, manage clients, reminders, checklists, notes, and income in Snapty. Secure iCloud sync keeps your photography workflow available across iPhone, iPad, and Mac.",
 
   applicationName: "Snapty",
 
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Snapty — Photo Planner for Photographers",
+    title: "Snapty — Photo Shoot Planner for iPhone, iPad and Mac",
     description:
-      "Plan shoots, manage clients, prepare checklists, keep reminders and track income in one iOS app for photographers.",
+      "Plan shoots, clients, reminders, checklists, notes, and income with secure iCloud sync across your Apple devices.",
     url: "/",
     siteName: "Snapty",
     images: [
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
         url: SOCIAL_SHARE_IMAGE_PATH,
         width: SOCIAL_SHARE_IMAGE_WIDTH,
         height: SOCIAL_SHARE_IMAGE_HEIGHT,
-        alt: "Snapty photo planner app for photographers",
+        alt: "Snapty photo shoot planner for iPhone, iPad and Mac",
       },
     ],
     locale: "en_US",
@@ -56,9 +57,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Snapty — Photo Planner for Photographers",
+    title: "Snapty — Photo Shoot Planner for iPhone, iPad and Mac",
     description:
-      "An iOS planner for photographers to organize shoots, clients, checklists, reminders, notes and income.",
+      "Plan shoots, clients, reminders, checklists, notes, and income with secure iCloud sync across your Apple devices.",
     images: [
       {
         url: SOCIAL_SHARE_IMAGE_PATH,
@@ -109,8 +110,10 @@ export const metadata: Metadata = {
     "photography reminders",
     "photographer checklist app",
     "photographer income tracker",
-    "iCloud sync photo planner",
-    "local-first photography planner",
+    "iCloud sync for photographers",
+    "photo shoot planner",
+    "photographer app for iPhone iPad and Mac",
+    "videographer planner app",
 
     "планер для фотографов",
     "планировщик фотографа",

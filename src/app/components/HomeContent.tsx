@@ -18,6 +18,8 @@ export default function HomeContent({ messages: m }: Props) {
         <div className="shell">
           <div className="hero-layout">
             <div className="hero-copy">
+              <p className="platforms-announcement">{m.home.platformsAnnouncement}</p>
+
               <div className="home-download-row">
                 <div className="release-note">
                   <span className="release-note-label">{m.home.releaseAvailable}</span>
@@ -27,6 +29,7 @@ export default function HomeContent({ messages: m }: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={m.home.appStoreAria}
+                    title={m.home.downloadCta}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -44,9 +47,13 @@ export default function HomeContent({ messages: m }: Props) {
                       <polyline points="7 10 12 15 17 10" />
                       <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
+                    <span className="release-download-text">{m.home.downloadCta}</span>
                   </a>
                 </div>
               </div>
+
+              <p className="workflow-badge">{m.home.workflowBadge}</p>
+              <p className="macos-requirement">{m.home.macOsRequirement}</p>
 
               <p className="eyebrow">{m.home.eyebrow}</p>
 
@@ -70,33 +77,67 @@ export default function HomeContent({ messages: m }: Props) {
                   </span>
                 ))}
               </div>
-
-              <div className="cards-grid">
-                {m.home.highlights.map((item, index) => (
-                  <article key={item.title} className="card">
-                    <span className="card-index">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h2>{item.title}</h2>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-
-              <section className="privacy-note" aria-labelledby="privacy-title">
-                <h2 id="privacy-title">{m.home.privacyTitle}</h2>
-                <p>{m.home.privacyText}</p>
-              </section>
             </div>
 
             <aside className="hero-visual" aria-label={m.home.visualAria}>
               <div className="screen-frame">
                 <ScreensCarousel
-                  screenAltTemplate={m.home.carouselScreenAlt}
+                  screenAlts={m.home.carouselAlts}
                   locale={m.locale}
                 />
               </div>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section icloud-feature" aria-labelledby="icloud-title">
+        <div className="shell">
+          <article className="icloud-feature-lead">
+            <h2 id="icloud-title">{m.home.iCloud.title}</h2>
+            <p>{m.home.iCloud.text}</p>
+          </article>
+          <div className="cards-grid icloud-cards">
+            {m.home.iCloud.cards.map((item, index) => (
+              <article key={item.title} className="card">
+                <span className="card-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section platforms-section" aria-labelledby="platforms-title">
+        <div className="shell">
+          <header className="section-header">
+            <h2 id="platforms-title">{m.home.platforms.title}</h2>
+            <p>{m.home.platforms.text}</p>
+          </header>
+          <div className="platform-cards">
+            {m.home.platforms.cards.map((item) => (
+              <article key={item.name} className="platform-card">
+                <h3>{item.name}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section faq-section" aria-labelledby="faq-title">
+        <div className="shell">
+          <h2 id="faq-title">{m.home.faq.title}</h2>
+          <div className="faq-list">
+            {m.home.faq.items.map((item) => (
+              <details key={item.question} className="faq-item">
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

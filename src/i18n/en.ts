@@ -33,27 +33,25 @@ export const en: Messages = {
       "local-first photo studio app",
     ],
     home: {
-      title: "Snapty — Photo Planner for Photographers | iOS Shoot Organizer",
+      title: "Snapty — Photo Shoot Planner & Client Organizer for iPhone, iPad and Mac",
       description:
-        "Snapty is an iOS photo planner for photographers and videographers. Manage shoots, clients, reminders, checklists, notes, income and optional iCloud sync in one focused app.",
+        "Plan photo shoots, manage clients, reminders, checklists, notes, and income in Snapty. Secure iCloud sync keeps your photography workflow available across iPhone, iPad, and Mac.",
+      ogTitle: "Snapty — Photo Shoot Planner for iPhone, iPad and Mac",
+      ogDescription:
+        "Plan shoots, clients, reminders, checklists, notes, and income with secure iCloud sync across your Apple devices.",
       keywords: [
-        "photography planner",
-        "photographer scheduling app",
-        "photographer calendar app",
-        "videographer planner",
+        "photo shoot planner",
+        "photographer planner app",
+        "client organizer for photographers",
+        "photography client management",
+        "shoot schedule app",
+        "wedding photography planner",
+        "photography business organizer",
+        "iCloud sync for photographers",
         "photo session planner",
-        "photo session booking app",
-        "shoot day planner",
-        "client database photographer",
-        "wedding photo planner",
-        "booking app photographers",
-        "booking and deposit tracker",
-        "Snapty app",
-        "photography studio organizer",
-        "shoot planner iOS",
-        "client notes for photographers",
-        "photo shoot checklist app",
-        "photography business planner",
+        "photographer app for iPhone iPad and Mac",
+        "videographer planner app",
+        "Mac photo planner",
       ],
     },
     policy: {
@@ -81,12 +79,12 @@ export const en: Messages = {
   },
   jsonLd: {
     description:
-      "Planner for photographers: bookings, clients, checklists, reminders and income overview on iPhone.",
+      "Photo shoot planner and client organizer for photographers and videographers with iCloud sync across iPhone, iPad, and Mac.",
     featureList: [
+      "iCloud sync across iPhone, iPad, and Mac",
       "Shoot and client scheduling",
-      "Checklists and reminders",
-      "Client base and shoot history",
-      "Bookings and revenue overview",
+      "Checklists, reminders, and notes",
+      "Client base and income overview",
     ],
   },
   nav: {
@@ -98,13 +96,18 @@ export const en: Messages = {
     toggleTheme: "Toggle theme",
   },
   home: {
-    releaseAvailable: "Available for iOS",
-    appStoreAria: "Download Snapty on the App Store",
+    releaseAvailable: "Available for iPhone, iPad, and Mac",
+    macOsRequirement: "macOS 26.0 or later",
+    platformsAnnouncement: "Snapty is now available on iPhone, iPad, and Mac.",
+    workflowBadge:
+      "Plan shoots on iPhone, review details on iPad, and manage your workflow on Mac.",
+    downloadCta: "Download on the App Store",
+    appStoreAria: "Download Snapty on the App Store for iPhone, iPad, and Mac",
     logoAlt: "Snapty logo",
-    eyebrow: "Planner for photographers",
+    eyebrow: "Photo shoot planner for photographers and videographers",
     title: "A calmer way to plan shoots, clients, and creative work",
     lead:
-      "Snapty helps photographers organize bookings, client records, reminders, personal notes, checklists, and income overview in one focused iPhone app. Less admin noise. More time for actual photography.",
+      "Snapty is a professional photo shoot planner and client organizer for photographers and videographers. Manage bookings, client records, reminders, notes, checklists, and income across iPhone, iPad, and Mac—with your workflow synced through iCloud when you enable it.",
     contactSupport: "Contact Support",
     privacyPolicy: "Privacy Policy",
     heroActionsAria: "Main actions",
@@ -114,30 +117,87 @@ export const en: Messages = {
       "Portrait photographers",
       "Family sessions",
       "Commercial shoots",
+      "Videographers",
     ],
-    highlights: [
-      {
-        title: "Plan every shoot",
-        text: "Keep upcoming sessions, dates, times, locations, and client details in one place.",
-      },
-      {
-        title: "Remember the details",
-        text: "Use reminders, notes, and checklists so nothing important disappears into the usual human chaos.",
-      },
-      {
-        title: "Know your clients",
-        text: "Store client cards, contact details, and shoot history without digging through old messages.",
-      },
-      {
-        title: "Track your work",
-        text: "Get a clear overview of sessions, payments, and planned income without building a spreadsheet shrine.",
-      },
+    iCloud: {
+      title: "Your shoots and client base stay safe in iCloud",
+      text: "Snapty keeps your shoots, client details, reminders, notes, checklists, and income records synced through your personal iCloud account. If you replace your device or something happens to it, your data can be restored from iCloud and continue working across your iPhone, iPad, and Mac.",
+      cards: [
+        {
+          title: "iCloud sync",
+          text: "Keep shoots, clients, reminders, notes, and checklists synchronized across your Apple devices.",
+        },
+        {
+          title: "Data recovery",
+          text: "Restore your planning workspace from iCloud when switching to a new device.",
+        },
+        {
+          title: "Cross-device workflow",
+          text: "Add a shoot on iPhone, refine details on iPad, and manage your schedule on Mac.",
+        },
+        {
+          title: "Private by design",
+          text: "Your workflow stays inside your Apple ecosystem, without unnecessary third-party accounts.",
+        },
+      ],
+    },
+    platforms: {
+      title: "Available on iPhone, iPad, and Mac",
+      text: "Snapty works across your Apple devices, so your photography planning is always close. Use iPhone on the go, iPad for comfortable review, and Mac for a larger workspace.",
+      cards: [
+        {
+          name: "iPhone",
+          text: "Quickly add shoots, clients, locations, and reminders during the day.",
+        },
+        {
+          name: "iPad",
+          text: "Review client details, notes, checklists, and upcoming sessions on a larger screen.",
+        },
+        {
+          name: "Mac",
+          text: "Manage your schedule, client base, and income overview from a full desktop workspace.",
+        },
+      ],
+    },
+    faq: {
+      title: "Frequently asked questions",
+      items: [
+        {
+          question: "What is Snapty?",
+          answer:
+            "Snapty is a photo shoot planner and client organizer for photographers and videographers. It helps manage shoots, clients, reminders, notes, checklists, and income in one workspace.",
+        },
+        {
+          question: "Does Snapty work on Mac?",
+          answer:
+            "Yes. Snapty is available on iPhone, iPad, and Mac (macOS 26.0 or later), so you can manage your photography workflow across your Apple devices.",
+        },
+        {
+          question: "Does Snapty sync data between devices?",
+          answer:
+            "Yes. Snapty uses iCloud sync to keep your shoots, clients, reminders, notes, and checklists available across your Apple devices when iCloud sync is enabled.",
+        },
+        {
+          question: "Can I restore my data if I change my device?",
+          answer:
+            "If iCloud sync is enabled, your Snapty data can be restored from your personal iCloud account when switching to a new device.",
+        },
+        {
+          question: "Is Snapty useful for wedding photographers?",
+          answer:
+            "Yes. Snapty helps wedding photographers plan ceremonies, walks, banquets, locations, client details, reminders, and payments.",
+        },
+      ],
+    },
+    visualAria: "Snapty app preview on iPhone, iPad, and Mac",
+    carouselAlts: [
+      "Snapty photo shoot planner on iPhone",
+      "Snapty client organizer for photographers",
+      "Snapty iCloud sync across iPhone, iPad and Mac",
+      "Snapty reminders and checklists for photo sessions",
+      "Snapty income overview for photographers",
+      "Snapty shoot schedule app for wedding photography",
     ],
-    privacyTitle: "Private by design",
-    privacyText:
-      "Snapty is built as a local-first workspace for your photography business. Your shoots, notes, clients, and reminders are designed to stay close to you, with optional iCloud sync support.",
-    visualAria: "Snapty app preview",
-    carouselScreenAlt: "Snapty app screen {n}",
   },
   policy: {
     pageTitle: "Privacy Policy",

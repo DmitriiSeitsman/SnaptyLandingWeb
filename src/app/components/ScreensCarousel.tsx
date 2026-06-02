@@ -35,13 +35,12 @@ const screenSets: Record<Locale, StaticImageData[]> = {
 };
 
 type Props = {
-  /** Use "{n}" for the screen index (1-based), e.g. "Screen {n}". */
-  screenAltTemplate?: string;
+  screenAlts?: string[];
   locale?: Locale;
 };
 
 export default function ScreensCarousel({
-  screenAltTemplate = "Snapty app screen {n}",
+  screenAlts = [],
   locale = "en",
 }: Props) {
   const screens = screenSets[locale];
@@ -67,7 +66,11 @@ export default function ScreensCarousel({
         <Image
           key={screen.src}
           src={screen}
-          alt={screenAltTemplate.replace("{n}", String(index + 1))}
+          alt={
+            screenAlts.length > 0
+              ? screenAlts[index % screenAlts.length]
+              : `Snapty app screen ${index + 1}`
+          }
           className={`screen-image carousel-image ${index === activeIndex ? "is-active" : ""}`}
           priority={index === 0}
         />
