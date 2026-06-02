@@ -4,9 +4,10 @@ import { useMemo } from "react";
 
 type Props = {
   label?: string;
+  className?: string;
 };
 
-export default function SupportMailLink({ label = "Write message" }: Props) {
+export default function SupportMailLink({ label = "Write message", className = "support-mail-link" }: Props) {
   const mailtoHref = useMemo(() => {
     const user = ["s", "e", "y", "t", "s", "m", "a", "n"].join("");
     const host = ["g", "m", "a", "i", "l", ".", "c", "o", "m"].join("");
@@ -15,7 +16,7 @@ export default function SupportMailLink({ label = "Write message" }: Props) {
   }, []);
 
   return (
-    <a className="support-mail-link" href={mailtoHref}>
+    <a className={className} href={mailtoHref}>
       {label}
     </a>
   );
