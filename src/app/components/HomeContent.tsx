@@ -135,7 +135,7 @@ export default function HomeContent({ messages: m }: Props) {
             {m.home.faq.items.map((item) => (
               <details key={item.question} className="faq-item">
                 <summary>{item.question}</summary>
-                <p>{item.answer}</p>
+                <p className="faq-answer">{item.answer}</p>
               </details>
             ))}
           </div>
